@@ -1,450 +1,363 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="description" content="Video Depth without Video Models" />
-    <meta
-      name="keywords"
-      content="depth, estimation, monocular, scene, reconstruction"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:image:src"
-      content="http://rollingdepth.github.io/images/logo_square.png"
-    />
-    <meta name="twitter:title" content="RollingDepth" />
-    <meta
-      name="twitter:description"
-      content="Video Depth without Video Models"
-    />
-    <meta name="twitter:creator" content="@AntonObukhov1" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="A Unified Solution to Video Fusion: From Multi-Frame Learning to Benchmarking
+    " />
+  <meta name="keywords" content="image fusion, video fusion, low-level vision" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>RollingDepth: Video Depth without Video Models</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛹</text></svg>"
-    />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image:src" content="http://rollingdepth.github.io/images/logo_square.png" />
+  <meta name="twitter:title" content="RollingDepth" />
+  <meta name="twitter:description" content="A Unified Solution to Video Fusion: From Multi-Frame Learning to Benchmarking
+      " />
+  <meta name="twitter:creator" content="@AntonObukhov1" />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-1FWSVCGZTG"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
+  <title>VF-Bench: A Unified Solution to Video Fusion: From Multi-Frame Learning to Benchmarking
+  </title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛹</text></svg>" />
 
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FWSVCGZTG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-      gtag("js", new Date());
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
-      gtag("config", "G-1FWSVCGZTG");
-    </script>
+    gtag("js", new Date());
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-      rel="stylesheet"
-    />
+    gtag("config", "G-1FWSVCGZTG");
+  </script>
 
-    <link rel="stylesheet" href="./css/bulma.min.css" />
-    <link rel="stylesheet" href="./css/bulma-carousel.min.css" />
-    <link rel="stylesheet" href="./css/bulma-slider.min.css" />
-    <link rel="stylesheet" href="./css/twentytwenty.css" />
-    <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/pages.css" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
 
-    <script src="./js/jquery-3.2.1.min.js"></script>
-    <script src="./js/jquery.event.move.js"></script>
-    <script src="./js/jquery.twentytwenty.js"></script>
-    <script src="./js/bulma-carousel.min.js"></script>
-    <script src="./js/bulma-slider.min.js"></script>
-    <script src="./js/fontawesome.all.min.js"></script>
+  <link rel="stylesheet" href="./css/bulma.min.css" />
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css" />
+  <link rel="stylesheet" href="./css/bulma-slider.min.css" />
+  <link rel="stylesheet" href="./css/twentytwenty.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/pages.css" />
 
-    <!--MathJax-->
-    <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [
-            ["$", "$"],
-            ["\\(", "\\)"],
-          ],
-        },
-        svg: {
-          fontCache: "global",
-        },
-      };
-    </script>
-    <script
-      type="text/javascript"
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    ></script>
-  </head>
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/jquery.event.move.js"></script>
+  <script src="./js/jquery.twentytwenty.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/fontawesome.all.min.js"></script>
 
-  <body>
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <div class="columns is-centered">
-            <div class="column has-text-centered">
-              <h2 class="title is-2 publication-title">🛹 RollingDepth</h2>
-              <h1 class="title is-1 publication-title">
-                Video Depth without Video Models
-              </h1>
-              <h3 class="title is-3">CVPR 2025</h3>
+  <!--MathJax-->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [
+          ["$", "$"],
+          ["\\(", "\\)"],
+        ],
+      },
+      svg: {
+        fontCache: "global",
+      },
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
 
-              <!-- Authors -->
-              <div class="is-size-5 publication-authors">
-                <span class="author-block">
-                  <a href="http://www.kebingxin.com/" rel="noopener noreferrer">
-                    Bingxin Ke</a
-                  ><sup>1</sup>,
-                </span>
-                <span class="author-block">
-                  <a
-                    href="https://scholar.google.com/citations?user=tFx8AhkAAAAJ&hl=en"
-                    rel="noopener noreferrer"
-                  >
-                    Dominik Narnhofer</a
-                  ><sup>1</sup>,
-                </span>
-                <span class="author-block">
-                  <a
-                    href="https://shengyuh.github.io/"
-                    rel="noopener noreferrer"
-                  >
-                    Shengyu Huang</a
-                  ><sup>1</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://www.kelei.site/" rel="noopener noreferrer">
-                    Lei Ke</a
-                  ><sup>2</sup>,
-                </span>
-                <span class="author-block">
-                  <a
-                    href="https://scholar.google.com/citations?user=F2C3I9EAAAAJ&hl=de"
-                    rel="noopener noreferrer"
-                  >
-                    Torben Peters</a
-                  ><sup>1</sup>,
-                </span>
-                <br />
-                <span class="author-block">
-                  <a
-                    href="https://www.cs.cmu.edu/~katef/"
-                    rel="noopener noreferrer"
-                  >
-                    Katerina Fragkiadaki</a
-                  ><sup>2</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://www.obukhov.ai" rel="noopener noreferrer">
-                    Anton Obukhov</a
-                  ><sup>1</sup>,
-                </span>
-                <span class="author-block">
-                  <a
-                    href="https://scholar.google.com/citations?user=FZuNgqIAAAAJ&hl=en"
-                    rel="noopener noreferrer"
-                  >
-                    Konrad Schindler</a
-                  ><sup>1</sup>
-                </span>
-              </div>
-              <!-- Affiliations -->
-              <div class="is-size-5 publication-authors">
-                <span class="author-block"
-                  ><sup>1</sup>&nbsp;Photogrammetry and Remote Sensing, ETH
-                  Zürich</span
-                >
-              </div>
-              <div class="is-size-5 publication-authors">
-                <span class="author-block"
-                  ><sup>2</sup>&nbsp;Carnegie Mellon University</span
-                >
-              </div>
-
-              <!-- Buttons -->
-              <div class="column has-text-centered">
-                <div class="publication-links">
-                  <span class="link-block">
-                    <a
-                      href="http://arxiv.org/abs/2411.19189"
-                      rel="noopener noreferrer"
-                      class="external-link button is-normal is-rounded is-dark"
-                    >
-                      <span class="icon">
-                        <i class="fas fa-file-pdf" style="color: orangered"></i>
-                      </span>
-                      <span>Paper</span>
-                    </a>
-                  </span>
-                  <!-- Code Link. -->
-                  <span class="link-block">
-                    <a
-                      href="https://github.com/prs-eth/rollingdepth"
-                      rel="noopener noreferrer"
-                      class="external-link button is-normal is-rounded is-dark"
-                    >
-                      <span class="icon">
-                        <i class="fab fa-github"></i>
-                      </span>
-                      <span>Code: </span>
-                      <!--                  <span>-->
-                      <!--                    Code:-->
-                      <!--                  </span>-->
-                      <img
-                        src="https://img.shields.io/github/stars/prs-eth/rollingdepth?style=for-the-badge&label=&color=333333&labelColor=333333"
-                        alt="GitHub stars"
-                        style="margin-top: 3px"
-                      />
-                      <span>🌟</span>
-                    </a>
-                  </span>
-                  <!-- Hugging Face Space -->
-                  <style>
-                    .link-block a.button.is-dark.disabled {
-                      background-color: #4a4a4a;
-                      opacity: 0.8;
-                      cursor: not-allowed;
-                      pointer-events: none;
-                    }
-                  </style>
-                  <span class="link-block">
-                    <a
-                      href="https://huggingface.co/spaces/prs-eth/rollingdepth"
-                      rel="noopener noreferrer"
-                      class="external-link button is-normal is-rounded is-dark"
-                    >
-                      <span class="icon">&#129303;</span>
-                      <span>Demo</span>
-                    </a>
-                  </span>
-                  <!--              &lt;!&ndash; Colab Link. &ndash;&gt;-->
-                  <!--              <span class="link-block">-->
-                  <!--                <a href="https://colab.research.google.com/drive/12G8reD13DdpMie5ZQlaFNo2WCGeNUH-u?usp=sharing"  rel="noopener noreferrer"-->
-                  <!--                   class="external-link button is-normal is-rounded is-dark">-->
-                  <!--                  <span class="icon">-->
-                  <!--                    <img src="images/colab.svg">-->
-                  <!--                  </span>-->
-                  <!--                  <span>&nbsp;Google Colab</span>-->
-                  <!--                </a>-->
-                  <!--              </span>-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="hero is-small is-light">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <!-- Paper video. -->
-          <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-              <div class="publication-video">
-                <!-- Youtube video -->
-                <div class="column has-text-centered">
-                  <iframe
-                    src="https://www.youtube.com/embed/EhqyUg7xoY8?si=gEhIeMjm6ItwR2X3"
-                    title="Intro Video"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <h2 class="subtitle has-text-centered">
-          Overview of the proposed
-          <span class="methodname">RollingDepth</span> method and results
-        </h2>
-      </div>
-    </section>
-
-    <!-- (hidden), for video switching buttons -->
-    <img
-      id="btn_selected"
-      src="./images/circle-shadowed.svg"
-      style="display: none"
-    />
-    <img
-      id="btn_normal"
-      src="./images/circle-small.svg"
-      style="display: none"
-    />
-
-    <!-- Gallery -->
-    <section class="hero teaser is-small is-light">
-      <div class="container is-max-desktop has-text-centered">
-        <div class="hero-body">
-          <h2 class="title is-3">In-the-wild Gallery</h2>
-          <!-- colorbar -->
-          <div class="container is-max-desktop has-text-centered">
-            <style>
-              .colorbar-img {
-                height: 15px;
-                width: 250px;
-              }
-              @media (max-width: 750px) {
-                /* 750px because 300/0.4 = 750 */
-                .colorbar-img {
-                  width: 150px;
-                }
-              }
-            </style>
-            <div>
-              <span>near</span>
-              <img
-                src="./images/colorbar.png"
-                alt="Depth colorbar"
-                class="colorbar-img"
-              />
-              <span>far</span>
-            </div>
-          </div>
-          <!-- For a new group, change all `_a1` to `_a2` -->
-          <video
-            id="myVideo_a1"
-            muted
-            autoplay="autoplay"
-            loop="loop"
-            width="100%"
-            controls
-            playsinline
-          ></video>
-          <!-- small circles, should correspond to number of videos -->
-          <div width="100%" class="pages" id="page_a1">
-            <img src="./images/arrow-left-round.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/arrow-right-round.svg" />
-          </div>
-          <script>
-            $(function () {
-              let src = [
-                "./video/ours_rgbd/0d237a5f_compressed.mp4",
-                "./video/ours_rgbd/teaser_dog_rgbd3_compressed.mp4",
-                "./video/ours_rgbd/7966db29_compressed.mp4",
-                "./video/ours_rgbd/8735692-hd_1920_1080_30fps_compressed.mp4",
-                "./video/ours_rgbd/2d174908_compressed.mp4",
-                "./video/ours_rgbd/623bbe3a_compressed.mp4",
-                "./video/ours_rgbd/M9SFmxyAlrc-CceT_compressed.mp4",
-              ];
-              const player = $("#myVideo_a1")[0];
-              const button = $("#page_a1 img");
-              const size = src.length;
-              let index = 0;
-              let old = -1;
-              function go() {
-                if (old >= 0) {
-                  button[old + 1].src = btn_normal.src;
-                }
-                button[index + 1].src = btn_selected.src;
-                old = index;
-                player.src = src[index];
-                player.load();
-              }
-              go();
-              button.click(function () {
-                let x = $(this).index();
-                if (x == 0) {
-                  if (index > 0) {
-                    index--;
-                    go();
-                  }
-                } else if (x == size + 1) {
-                  if (index < size - 1) {
-                    index++;
-                    go();
-                  }
-                } else if (x > 0 && x <= size) {
-                  index = x - 1;
-                  go();
-                }
-              });
-            });
-          </script>
-        </div>
-      </div>
-    </section>
-
-    <section class="section pt-0">
+<body>
+  <section class="hero">
+    <div class="hero-body">
       <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h2 class="title is-2 publication-title">🛹 VF-Bench</h2>
+            <h1 class="title is-1 publication-title">
+              A Unified Solution to Video Fusion: From Multi-Frame Learning to Benchmarking
+            </h1>
+            <!-- <h3 class="title is-3">CVPR 2025</h3> -->
+
+            <!-- Authors -->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://zhaozixiang1228.github.io/" rel="noopener noreferrer">
+                  Zixiang Zhao</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://haowenbai.github.io/" rel="noopener noreferrer">
+                  Haowen Bai</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="http://www.kebingxin.com/" rel="noopener noreferrer">
+                  Bingxin Ke</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://openreview.net/profile?id=~Yukun_Cui2" rel="noopener noreferrer">
+                  Yukun Cui</a><sup>2</sup>,
+              </span>
+              <br />
+              <span class="author-block">
+                <a href="https://openreview.net/profile?id=~Lilun_Deng1" rel="noopener noreferrer">
+                  Lilun Deng</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://yulunzhang.com/" rel="noopener noreferrer">
+                  Yulun Zhang</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://cszn.github.io/" rel="noopener noreferrer">
+                  Kai Zhang</a><sup>4</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=FZuNgqIAAAAJ&hl=en" rel="noopener noreferrer">
+                  Konrad Schindler</a><sup>1</sup>
+              </span>
+            </div>
+            <!-- Affiliations -->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>&nbsp;ETH Zürich</span>&nbsp;
+              <span class="author-block"><sup>2</sup>&nbsp;Xi'an Jiaotong University</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>3</sup>&nbsp;Shanghai Jiao Tong University</span>&nbsp;
+              <span class="author-block"><sup>4</sup>&nbsp;Nanjing University</span>
+            </div>
+            <!-- Buttons -->
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="http://arxiv.org/abs/2411.19189" rel="noopener noreferrer"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf" style="color: orangered"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/prs-eth/rollingdepth" rel="noopener noreferrer"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code: </span>
+                    <!--                  <span>-->
+                    <!--                    Code:-->
+                    <!--                  </span>-->
+                    <img
+                      src="https://img.shields.io/github/stars/prs-eth/rollingdepth?style=for-the-badge&label=&color=333333&labelColor=333333"
+                      alt="GitHub stars" style="margin-top: 3px" />
+                    <span>🌟</span>
+                  </a>
+                </span>
+                <!-- Hugging Face Space -->
+                <style>
+                  .link-block a.button.is-dark.disabled {
+                    background-color: #4a4a4a;
+                    opacity: 0.8;
+                    cursor: not-allowed;
+                    pointer-events: none;
+                  }
+                </style>
+                <span class="link-block">
+                  <a href="https://huggingface.co/spaces/prs-eth/rollingdepth" rel="noopener noreferrer"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">&#129303;</span>
+                    <span>Demo</span>
+                  </a>
+                </span>
+                <!--              &lt;!&ndash; Colab Link. &ndash;&gt;-->
+                <!--              <span class="link-block">-->
+                <!--                <a href="https://colab.research.google.com/drive/12G8reD13DdpMie5ZQlaFNo2WCGeNUH-u?usp=sharing"  rel="noopener noreferrer"-->
+                <!--                   class="external-link button is-normal is-rounded is-dark">-->
+                <!--                  <span class="icon">-->
+                <!--                    <img src="images/colab.svg">-->
+                <!--                  </span>-->
+                <!--                  <span>&nbsp;Google Colab</span>-->
+                <!--                </a>-->
+                <!--              </span>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <!-- Paper video. -->
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <!-- Abstract -->
-            <h3 class="title is-3">Abstract</h3>
-            <div class="content has-text-justified">
-              <p>
-                Video depth estimation lifts monocular video clips to 3D by
-                inferring dense depth at every frame. Recent advances in
-                single-image depth estimation, brought about by the rise of
-                large foundation models and the use of synthetic training data,
-                have fueled a renewed interest in video depth. However, naively
-                applying a single-image depth estimator to every frame of a
-                video disregards temporal continuity, which not only leads to
-                flickering but may also break when camera motion causes sudden
-                changes in depth range. An obvious and principled solution would
-                be to build on top of video foundation models, but these come
-                with their own limitations; including expensive training and
-                inference, imperfect 3D consistency, and stitching routines for
-                the fixed-length (short) outputs. We take a step back and
-                demonstrate how to turn a single-image latent diffusion model
-                (LDM) into a state-of-the-art video depth estimator. Our model,
-                which we call <span class="methodname">RollingDepth</span>, has
-                two main ingredients: (i) a multi-frame depth estimator that is
-                derived from a single-image LDM and maps very short video
-                snippets (typically frame triplets) to depth snippets. (ii) a
-                robust, optimization-based registration algorithm that optimally
-                assembles depth snippets sampled at various different frame
-                rates back into a consistent video. RollingDepth is able to
-                efficiently handle long videos with hundreds of frames and
-                delivers more accurate depth videos than both dedicated video
-                depth estimators and high-performing single-frame models.
-              </p>
+            <div class="publication-video">
+              <!-- Youtube video -->
+              <div class="column has-text-centered">
+                <iframe src="https://www.youtube.com/embed/EhqyUg7xoY8?si=gEhIeMjm6ItwR2X3" title="Intro Video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        Overview of the proposed
+        <span class="methodname">RollingDepth</span> method and results
+      </h2>
+    </div>
+  </section>
 
-            <!-- Method. -->
-            <h2 class="title is-3">How it works</h2>
-            <div class="content has-text-justified">
-              <img
-                id="method_inference"
-                width="100%"
-                src="./images/method.png"
-                alt="Method"
-              />
+  <!-- (hidden), for video switching buttons -->
+  <img id="btn_selected" src="./images/circle-shadowed.svg" style="display: none" />
+  <img id="btn_normal" src="./images/circle-small.svg" style="display: none" />
 
-              <p>
-                <b
-                  >Overview of the
-                  <span class="methodname">RollingDepth</span> Inference
-                  Pipeline.</b
-                >
-                Given a video sequence $\mathbf{x}$, we construct $N_T$
-                overlapping snippets using a <i>dilated rolling kernel</i> with
-                varying dilation rates, and perform 1-step inference to obtain
-                initial depth snippets
-                <span
-                  style="display: inline-flex; gap: 2px; vertical-align: middle"
-                >
-                  <span
-                    style="
+  <!-- Gallery -->
+  <section class="hero teaser is-small is-light">
+    <div class="container is-max-desktop has-text-centered">
+      <div class="hero-body">
+        <h2 class="title is-3">In-the-wild Gallery</h2>
+        <!-- colorbar -->
+        <div class="container is-max-desktop has-text-centered">
+          <style>
+            .colorbar-img {
+              height: 15px;
+              width: 250px;
+            }
+
+            @media (max-width: 750px) {
+
+              /* 750px because 300/0.4 = 750 */
+              .colorbar-img {
+                width: 150px;
+              }
+            }
+          </style>
+          <div>
+            <span>near</span>
+            <img src="./images/colorbar.png" alt="Depth colorbar" class="colorbar-img" />
+            <span>far</span>
+          </div>
+        </div>
+        <!-- For a new group, change all `_a1` to `_a2` -->
+        <video id="myVideo_a1" muted autoplay="autoplay" loop="loop" width="100%" controls playsinline></video>
+        <!-- small circles, should correspond to number of videos -->
+        <div width="100%" class="pages" id="page_a1">
+          <img src="./images/arrow-left-round.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/arrow-right-round.svg" />
+        </div>
+        <script>
+          $(function () {
+            let src = [
+              "./video/ours_rgbd/0d237a5f_compressed.mp4",
+              "./video/ours_rgbd/teaser_dog_rgbd3_compressed.mp4",
+              "./video/ours_rgbd/7966db29_compressed.mp4",
+              "./video/ours_rgbd/8735692-hd_1920_1080_30fps_compressed.mp4",
+              "./video/ours_rgbd/2d174908_compressed.mp4",
+              "./video/ours_rgbd/623bbe3a_compressed.mp4",
+              "./video/ours_rgbd/M9SFmxyAlrc-CceT_compressed.mp4",
+            ];
+            const player = $("#myVideo_a1")[0];
+            const button = $("#page_a1 img");
+            const size = src.length;
+            let index = 0;
+            let old = -1;
+            function go() {
+              if (old >= 0) {
+                button[old + 1].src = btn_normal.src;
+              }
+              button[index + 1].src = btn_selected.src;
+              old = index;
+              player.src = src[index];
+              player.load();
+            }
+            go();
+            button.click(function () {
+              let x = $(this).index();
+              if (x == 0) {
+                if (index > 0) {
+                  index--;
+                  go();
+                }
+              } else if (x == size + 1) {
+                if (index < size - 1) {
+                  index++;
+                  go();
+                }
+              } else if (x > 0 && x <= size) {
+                index = x - 1;
+                go();
+              }
+            });
+          });
+        </script>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <!-- Abstract -->
+          <h3 class="title is-3">Abstract</h3>
+          <div class="content has-text-justified">
+            <p>
+              Video depth estimation lifts monocular video clips to 3D by
+              inferring dense depth at every frame. Recent advances in
+              single-image depth estimation, brought about by the rise of
+              large foundation models and the use of synthetic training data,
+              have fueled a renewed interest in video depth. However, naively
+              applying a single-image depth estimator to every frame of a
+              video disregards temporal continuity, which not only leads to
+              flickering but may also break when camera motion causes sudden
+              changes in depth range. An obvious and principled solution would
+              be to build on top of video foundation models, but these come
+              with their own limitations; including expensive training and
+              inference, imperfect 3D consistency, and stitching routines for
+              the fixed-length (short) outputs. We take a step back and
+              demonstrate how to turn a single-image latent diffusion model
+              (LDM) into a state-of-the-art video depth estimator. Our model,
+              which we call <span class="methodname">RollingDepth</span>, has
+              two main ingredients: (i) a multi-frame depth estimator that is
+              derived from a single-image LDM and maps very short video
+              snippets (typically frame triplets) to depth snippets. (ii) a
+              robust, optimization-based registration algorithm that optimally
+              assembles depth snippets sampled at various different frame
+              rates back into a consistent video. RollingDepth is able to
+              efficiently handle long videos with hundreds of frames and
+              delivers more accurate depth videos than both dedicated video
+              depth estimators and high-performing single-frame models.
+            </p>
+          </div>
+
+          <!-- Method. -->
+          <h2 class="title is-3">How it works</h2>
+          <div class="content has-text-justified">
+            <img id="method_inference" width="100%" src="./images/method.png" alt="Method" />
+
+            <p>
+              <b>Overview of the
+                <span class="methodname">RollingDepth</span> Inference
+                Pipeline.</b>
+              Given a video sequence $\mathbf{x}$, we construct $N_T$
+              overlapping snippets using a <i>dilated rolling kernel</i> with
+              varying dilation rates, and perform 1-step inference to obtain
+              initial depth snippets
+              <span style="display: inline-flex; gap: 2px; vertical-align: middle">
+                <span style="
                       width: 20px;
                       height: 20px;
                       background-color: #2160c4;
@@ -454,11 +367,8 @@
                       font-size: 12px;
                       font-weight: bold;
                       color: black;
-                    "
-                    >k</span
-                  >
-                  <span
-                    style="
+                    ">k</span>
+                <span style="
                       width: 20px;
                       height: 20px;
                       background-color: #ffa500;
@@ -468,11 +378,8 @@
                       font-size: 12px;
                       font-weight: bold;
                       color: black;
-                    "
-                    >k</span
-                  >
-                  <span
-                    style="
+                    ">k</span>
+                <span style="
                       width: 20px;
                       height: 20px;
                       background-color: #cc0000;
@@ -482,294 +389,266 @@
                       font-size: 12px;
                       font-weight: bold;
                       color: black;
-                    "
-                    >k</span
-                  > </span
-                >. Next, depth co-alignment optimizes $N_T$ pairs of scale and
-                shift values to achieve globally consistent depth throughout the
-                full video. An optional refinement step further enhances details
-                by applying additional, snippet-based denoising steps.
-              </p>
+                    ">k</span> </span>. Next, depth co-alignment optimizes $N_T$ pairs of scale and
+              shift values to achieve globally consistent depth throughout the
+              full video. An optional refinement step further enhances details
+              by applying additional, snippet-based denoising steps.
+            </p>
 
-              <!-- Quantitative table -->
-              <h2 class="title has-text-centered">
-                Quantitative comparison with other methods
-              </h2>
+            <!-- Quantitative table -->
+            <h2 class="title has-text-centered">
+              Quantitative comparison with other methods
+            </h2>
 
-              <p>
-                <b>Quantitative comparison</b> of
-                <span class="methodname">RollingDepth</span> with baseline
-                methods on zero-shot benchmarks. <b>Bold</b> numbers are the
-                best, <u>underscored</u> second best, numbers in the bracket
-                after each dataset denote video sequence length.
-                <span class="methodname">RollingDepth</span>
-                demonstrates superior performance across both short and long
-                video sequences, despite being an image-based model.
-              </p>
+            <p>
+              <b>Quantitative comparison</b> of
+              <span class="methodname">RollingDepth</span> with baseline
+              methods on zero-shot benchmarks. <b>Bold</b> numbers are the
+              best, <u>underscored</u> second best, numbers in the bracket
+              after each dataset denote video sequence length.
+              <span class="methodname">RollingDepth</span>
+              demonstrates superior performance across both short and long
+              video sequences, despite being an image-based model.
+            </p>
 
-              <img
-                id="comparison"
-                width="100%"
-                src="./images/table.png"
-                alt="Comparison with other methods"
-              />
+            <img id="comparison" width="100%" src="./images/table.png" alt="Comparison with other methods" />
 
-              <p class="mt-5">
-                Refer to the pdf paper linked above for more details on
-                qualitative, quantitative, and ablation studies.
-              </p>
-            </div>
+            <p class="mt-5">
+              Refer to the pdf paper linked above for more details on
+              qualitative, quantitative, and ablation studies.
+            </p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Dataset comparison -->
-    <section class="hero teaser is-small">
-      <div class="container is-max-desktop has-text-centered">
-        <div class="hero-body">
-          <h2 class="title has-text-centered">
-            Qualitative comparison on labeled datasets
-          </h2>
-          <!-- colorbar -->
-          <div class="container is-max-desktop has-text-centered">
-            <style>
+  <!-- Dataset comparison -->
+  <section class="hero teaser is-small">
+    <div class="container is-max-desktop has-text-centered">
+      <div class="hero-body">
+        <h2 class="title has-text-centered">
+          Qualitative comparison on labeled datasets
+        </h2>
+        <!-- colorbar -->
+        <div class="container is-max-desktop has-text-centered">
+          <style>
+            .colorbar-img {
+              height: 15px;
+              width: 250px;
+            }
+
+            @media (max-width: 750px) {
+
+              /* 750px because 300/0.4 = 750 */
               .colorbar-img {
-                height: 15px;
-                width: 250px;
+                width: 150px;
               }
-              @media (max-width: 750px) {
-                /* 750px because 300/0.4 = 750 */
-                .colorbar-img {
-                  width: 150px;
-                }
-              }
-            </style>
-            <div>
-              <span>near</span>
-              <img
-                src="./images/colorbar.png"
-                alt="Depth colorbar"
-                class="colorbar-img"
-              />
-              <span>far</span>
-            </div>
+            }
+          </style>
+          <div>
+            <span>near</span>
+            <img src="./images/colorbar.png" alt="Depth colorbar" class="colorbar-img" />
+            <span>far</span>
           </div>
-          <!-- For a new group, change all `_a3` to `_a3` -->
-          <video
-            id="myVideo_a3"
-            muted
-            autoplay="autoplay"
-            loop="loop"
-            width="100%"
-            controls
-            playsinline
-          ></video>
-          <div width="100%" class="pages" id="page_a3">
-            <img src="./images/arrow-left-round.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/arrow-right-round.svg" />
-          </div>
-          <script>
-            $(function () {
-              let src = [
-                "./video/comparison_dataset/train^dancing_compressed.mp4",
-                "./video/comparison_dataset/train^scene_recording_20210910_S05_S06_0_ego2_compressed.mp4",
-                "./video/comparison_dataset/train^footlab_3rd_compressed.mp4",
-                "./video/comparison_dataset/train^seminar_h52_ego1_compressed.mp4",
-                "./video/comparison_dataset/scene0797_00_compressed.mp4",
-                "./video/comparison_dataset/scene0723_00_compressed.mp4",
-                "./video/comparison_dataset/scene0724_00_compressed.mp4",
-                "./video/comparison_dataset/scene0736_00_compressed.mp4",
-                "./video/comparison_dataset/scene0804_00_compressed.mp4",
-                "./video/comparison_dataset/xmas^xmas_shot1_compressed.mp4",
-                "./video/comparison_dataset/coffe_shop^coffe_shot1_compressed.mp4",
-              ];
-              const player = $("#myVideo_a3")[0];
-              const button = $("#page_a3 img");
-              const size = src.length;
-              let index = 0;
-              let old = -1;
-              function go() {
-                if (old >= 0) {
-                  button[old + 1].src = btn_normal.src;
-                }
-                button[index + 1].src = btn_selected.src;
-                old = index;
-                player.src = src[index];
-                player.load();
+        </div>
+        <!-- For a new group, change all `_a3` to `_a3` -->
+        <video id="myVideo_a3" muted autoplay="autoplay" loop="loop" width="100%" controls playsinline></video>
+        <div width="100%" class="pages" id="page_a3">
+          <img src="./images/arrow-left-round.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/arrow-right-round.svg" />
+        </div>
+        <script>
+          $(function () {
+            let src = [
+              "./video/comparison_dataset/train^dancing_compressed.mp4",
+              "./video/comparison_dataset/train^scene_recording_20210910_S05_S06_0_ego2_compressed.mp4",
+              "./video/comparison_dataset/train^footlab_3rd_compressed.mp4",
+              "./video/comparison_dataset/train^seminar_h52_ego1_compressed.mp4",
+              "./video/comparison_dataset/scene0797_00_compressed.mp4",
+              "./video/comparison_dataset/scene0723_00_compressed.mp4",
+              "./video/comparison_dataset/scene0724_00_compressed.mp4",
+              "./video/comparison_dataset/scene0736_00_compressed.mp4",
+              "./video/comparison_dataset/scene0804_00_compressed.mp4",
+              "./video/comparison_dataset/xmas^xmas_shot1_compressed.mp4",
+              "./video/comparison_dataset/coffe_shop^coffe_shot1_compressed.mp4",
+            ];
+            const player = $("#myVideo_a3")[0];
+            const button = $("#page_a3 img");
+            const size = src.length;
+            let index = 0;
+            let old = -1;
+            function go() {
+              if (old >= 0) {
+                button[old + 1].src = btn_normal.src;
               }
-              go();
-              button.click(function () {
-                let x = $(this).index();
-                if (x == 0) {
-                  if (index > 0) {
-                    index--;
-                    go();
-                  }
-                } else if (x == size + 1) {
-                  if (index < size - 1) {
-                    index++;
-                    go();
-                  }
-                } else if (x > 0 && x <= size) {
-                  index = x - 1;
+              button[index + 1].src = btn_selected.src;
+              old = index;
+              player.src = src[index];
+              player.load();
+            }
+            go();
+            button.click(function () {
+              let x = $(this).index();
+              if (x == 0) {
+                if (index > 0) {
+                  index--;
                   go();
                 }
-              });
-            });
-          </script>
-        </div>
-      </div>
-    </section>
-
-    <!-- In-the-wild comparison -->
-    <section class="hero teaser is-small">
-      <div class="container is-max-desktop has-text-centered">
-        <div class="hero-body">
-          <h2 class="title has-text-centered">
-            Qualitative comparison on in-the-wild videos
-          </h2>
-          <!-- colorbar -->
-          <div class="container is-max-desktop has-text-centered">
-            <style>
-              .colorbar-img {
-                height: 15px;
-                width: 250px;
-              }
-              @media (max-width: 750px) {
-                /* 750px because 300/0.4 = 750 */
-                .colorbar-img {
-                  width: 150px;
-                }
-              }
-            </style>
-            <div>
-              <span>near</span>
-              <img
-                src="./images/colorbar.png"
-                alt="Depth colorbar"
-                class="colorbar-img"
-              />
-              <span>far</span>
-            </div>
-          </div>
-          <!-- For a new group, change all `_a2` to `_a2` -->
-          <video
-            id="myVideo_a2"
-            muted
-            autoplay="autoplay"
-            loop="loop"
-            width="100%"
-            controls
-            playsinline
-          ></video>
-          <!-- small circles, should correspond to number of videos -->
-          <div width="100%" class="pages" id="page_a2">
-            <img src="./images/arrow-left-round.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/circle-small.svg" />
-            <img src="./images/arrow-right-round.svg" />
-          </div>
-          <script>
-            $(function () {
-              let src = [
-                "./video/comparison_in-the-wild/2d174908_compressed.mp4",
-                "./video/comparison_in-the-wild/4a94edce_compressed.mp4",
-                "./video/comparison_in-the-wild/8f23d65c_compressed.mp4",
-                "./video/comparison_in-the-wild/horse_compressed.mp4",
-                "./video/comparison_in-the-wild/M9SFmxyAlrc-CceT_compressed.mp4",
-              ];
-              const player = $("#myVideo_a2")[0];
-              const button = $("#page_a2 img");
-              const size = src.length;
-              let index = 0;
-              let old = -1;
-              function go() {
-                if (old >= 0) {
-                  button[old + 1].src = btn_normal.src;
-                }
-                button[index + 1].src = btn_selected.src;
-                old = index;
-                player.src = src[index];
-                player.load();
-              }
-              go();
-              button.click(function () {
-                let x = $(this).index();
-                if (x == 0) {
-                  if (index > 0) {
-                    index--;
-                    go();
-                  }
-                } else if (x == size + 1) {
-                  if (index < size - 1) {
-                    index++;
-                    go();
-                  }
-                } else if (x > 0 && x <= size) {
-                  index = x - 1;
+              } else if (x == size + 1) {
+                if (index < size - 1) {
+                  index++;
                   go();
                 }
-              });
+              } else if (x > 0 && x <= size) {
+                index = x - 1;
+                go();
+              }
             });
-          </script>
-        </div>
+          });
+        </script>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <script>
-      $(window).on("load", function () {
-        bulmaCarousel.attach("#results-carousel-teaser", {
-          slidesToScroll: 1,
-          slidesToShow: 1,
-          loop: true,
-          autoplay: true,
-        });
+  <!-- In-the-wild comparison -->
+  <section class="hero teaser is-small">
+    <div class="container is-max-desktop has-text-centered">
+      <div class="hero-body">
+        <h2 class="title has-text-centered">
+          Qualitative comparison on in-the-wild videos
+        </h2>
+        <!-- colorbar -->
+        <div class="container is-max-desktop has-text-centered">
+          <style>
+            .colorbar-img {
+              height: 15px;
+              width: 250px;
+            }
 
-        bulmaCarousel.attach("#results-carousel-horizontal", {
-          slidesToScroll: 1,
-          slidesToShow: 5,
-          loop: true,
-          autoplay: true,
-        });
+            @media (max-width: 750px) {
 
-        $(".twentytwenty-container-top").twentytwenty({
-          before_label: "Input",
-          after_label: "Ours",
-          default_offset_pct: 0.75,
-        });
+              /* 750px because 300/0.4 = 750 */
+              .colorbar-img {
+                width: 150px;
+              }
+            }
+          </style>
+          <div>
+            <span>near</span>
+            <img src="./images/colorbar.png" alt="Depth colorbar" class="colorbar-img" />
+            <span>far</span>
+          </div>
+        </div>
+        <!-- For a new group, change all `_a2` to `_a2` -->
+        <video id="myVideo_a2" muted autoplay="autoplay" loop="loop" width="100%" controls playsinline></video>
+        <!-- small circles, should correspond to number of videos -->
+        <div width="100%" class="pages" id="page_a2">
+          <img src="./images/arrow-left-round.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/circle-small.svg" />
+          <img src="./images/arrow-right-round.svg" />
+        </div>
+        <script>
+          $(function () {
+            let src = [
+              "./video/comparison_in-the-wild/2d174908_compressed.mp4",
+              "./video/comparison_in-the-wild/4a94edce_compressed.mp4",
+              "./video/comparison_in-the-wild/8f23d65c_compressed.mp4",
+              "./video/comparison_in-the-wild/horse_compressed.mp4",
+              "./video/comparison_in-the-wild/M9SFmxyAlrc-CceT_compressed.mp4",
+            ];
+            const player = $("#myVideo_a2")[0];
+            const button = $("#page_a2 img");
+            const size = src.length;
+            let index = 0;
+            let old = -1;
+            function go() {
+              if (old >= 0) {
+                button[old + 1].src = btn_normal.src;
+              }
+              button[index + 1].src = btn_selected.src;
+              old = index;
+              player.src = src[index];
+              player.load();
+            }
+            go();
+            button.click(function () {
+              let x = $(this).index();
+              if (x == 0) {
+                if (index > 0) {
+                  index--;
+                  go();
+                }
+              } else if (x == size + 1) {
+                if (index < size - 1) {
+                  index++;
+                  go();
+                }
+              } else if (x > 0 && x <= size) {
+                index = x - 1;
+                go();
+              }
+            });
+          });
+        </script>
+      </div>
+    </div>
+  </section>
 
-        $(".twentytwenty-container-bottom").twentytwenty({
-          before_label: "LeRes",
-          after_label: "Ours",
-          default_offset_pct: 0.5,
-        });
-
-        $(".results-carousel").css({
-          "max-height": "2000px",
-          visibility: "visible",
-        });
+  <script>
+    $(window).on("load", function () {
+      bulmaCarousel.attach("#results-carousel-teaser", {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        loop: true,
+        autoplay: true,
       });
-    </script>
 
-    <section class="section pt-0" id="BibTeX">
-      <div class="container is-max-desktop content">
-        <h2 class="title">Citation</h2>
-        <pre class="selectable">
+      bulmaCarousel.attach("#results-carousel-horizontal", {
+        slidesToScroll: 1,
+        slidesToShow: 5,
+        loop: true,
+        autoplay: true,
+      });
+
+      $(".twentytwenty-container-top").twentytwenty({
+        before_label: "Input",
+        after_label: "Ours",
+        default_offset_pct: 0.75,
+      });
+
+      $(".twentytwenty-container-bottom").twentytwenty({
+        before_label: "LeRes",
+        after_label: "Ours",
+        default_offset_pct: 0.5,
+      });
+
+      $(".results-carousel").css({
+        "max-height": "2000px",
+        visibility: "visible",
+      });
+    });
+  </script>
+
+  <section class="section pt-0" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Citation</h2>
+      <pre class="selectable">
 <code>@InProceedings{ke2024rollingdepth,
     title={Video Depth without Video Models}, 
     author={Bingxin Ke and Dominik Narnhofer and Shengyu Huang and Lei Ke and Torben Peters and Katerina Fragkiadaki and Anton Obukhov and Konrad Schindler},
@@ -777,31 +656,28 @@
     year={2025}
 }</code>
 </pre>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <footer class="footer pt-4 pb-0">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-8">
-            <div class="content">
-              <p>
-                Website template based on
-                <a href="https://github.com/nerfies/nerfies.github.io">
-                  Nerfies
-                </a>
-                and licensed under
-                <a
-                  rel="license"
-                  href="http://creativecommons.org/licenses/by-sa/4.0/"
-                >
-                  CC-BY-SA-4.0 </a
-                >.
-              </p>
-            </div>
+  <footer class="footer pt-4 pb-0">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Website template based on
+              <a href="https://github.com/nerfies/nerfies.github.io">
+                Nerfies
+              </a>
+              and licensed under
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                CC-BY-SA-4.0 </a>.
+            </p>
           </div>
         </div>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
+
 </html>
