@@ -74,7 +74,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h2 class="title is-2 publication-title">🛹 VF-Bench</h2>
+            <h2 class="title is-2 publication-title">🌐 VF-Bench 🌐</h2>
             <h1 class="title is-1 publication-title">
               A Unified Solution to Video Fusion: From Multi-Frame Learning to Benchmarking
             </h1>
@@ -127,12 +127,13 @@
             </div>
             <!-- Buttons -->
             <div class="column has-text-centered">
+              <!-- Paper Link. -->
               <div class="publication-links">
                 <span class="link-block">
                   <a href="http://arxiv.org/abs/2411.19189" rel="noopener noreferrer"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                      <i class="fas fa-file-pdf" style="color: orangered"></i>
+                      <i class="fas fa-file-pdf"></i>
                     </span>
                     <span>Paper</span>
                   </a>
@@ -144,18 +145,23 @@
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code: </span>
-                    <!--                  <span>-->
-                    <!--                    Code:-->
-                    <!--                  </span>-->
-                    <img
+                    <span>Code</span>
+                    <!-- <img
                       src="https://img.shields.io/github/stars/prs-eth/rollingdepth?style=for-the-badge&label=&color=333333&labelColor=333333"
                       alt="GitHub stars" style="margin-top: 3px" />
-                    <span>🌟</span>
+                    <span>🌟</span> -->
                   </a>
                 </span>
+                <!-- Dataset link -->
+                <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa fa-file-archive"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a> </span>
                 <!-- Hugging Face Space -->
-                <style>
+                <!-- <style>
                   .link-block a.button.is-dark.disabled {
                     background-color: #4a4a4a;
                     opacity: 0.8;
@@ -169,7 +175,8 @@
                     <span class="icon">&#129303;</span>
                     <span>Demo</span>
                   </a>
-                </span>
+                </span> -->
+
                 <!--              &lt;!&ndash; Colab Link. &ndash;&gt;-->
                 <!--              <span class="link-block">-->
                 <!--                <a href="https://colab.research.google.com/drive/12G8reD13DdpMie5ZQlaFNo2WCGeNUH-u?usp=sharing"  rel="noopener noreferrer"-->
@@ -187,6 +194,46 @@
       </div>
     </div>
   </section>
+
+  <!-- Teaser image-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <center>
+          <img src="static\images\1.png" border="0" width="100%">
+        </center>
+        <h2 class="subtitle has-text-centered">
+          Figure 1: Overview of our main contribution in this paper.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser image -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              The real world is dynamic, yet most image fusion methods process static frames independently, ignoring temporal
+              correlations in videos and leading to flickering and temporal inconsistency. To address this, we propose <b>Uni</b>fied <b>V</b>ideo
+              <b>F</b>usion <b>(UniVF)</b>, a novel framework for temporally coherent video fusion that leverages multi-frame learning and optical
+              flow-based feature warping for informative, temporally coherent video fusion. To support its development, we also
+              introduce <b>V</b>ideo <b>F</b>usion <b>Bench</b>mark <b>(VF-Bench)</b>, the first comprehensive benchmark covering four video fusion tasks:
+              multi-exposure, multi-focus, infrared-visible, and medical fusion. VF-Bench provides high-quality, well-aligned video
+              pairs obtained through synthetic data generation and rigorous curation from existing datasets, with a unified evaluation
+              protocol that jointly assesses the spatial quality and temporal consistency of video fusion. Extensive experiments show
+              that UniVF achieves state-of-the-art results across all tasks on VF-Bench.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
 
   <section class="hero is-small is-light">
     <div class="hero-body">
