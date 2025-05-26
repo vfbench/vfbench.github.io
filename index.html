@@ -8,32 +8,12 @@
   <meta name="keywords" content="image fusion, video fusion, low-level vision" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:image:src" content="http://rollingdepth.github.io/images/logo_square.png" />
-  <meta name="twitter:title" content="RollingDepth" />
-  <meta name="twitter:description" content="A Unified Solution to Video Fusion: From Multi-Frame Learning to Benchmarking
-      " />
-  <meta name="twitter:creator" content="@AntonObukhov1" />
-
-  <title>VF-Bench: A Unified Solution to Video Fusion: From Multi-Frame Learning to Benchmarking
+  <title>VF-Bench
   </title>
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛹</text></svg>" />
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FWSVCGZTG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag("js", new Date());
-
-    gtag("config", "G-1FWSVCGZTG");
-  </script>
-
+  <!-- google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
 
   <link rel="stylesheet" href="./css/bulma.min.css" />
@@ -50,7 +30,7 @@
   <script src="./js/bulma-slider.min.js"></script>
   <script src="./js/fontawesome.all.min.js"></script>
 
-  <!--MathJax-->
+  <!--MathJax for Equations-->
   <script>
     window.MathJax = {
       tex: {
@@ -130,7 +110,7 @@
               <!-- Paper Link. -->
               <div class="publication-links">
                 <span class="link-block">
-                  <a href="http://arxiv.org/abs/2411.19189" rel="noopener noreferrer"
+                  <a href="" rel="noopener noreferrer"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -140,7 +120,7 @@
                 </span>
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="https://github.com/prs-eth/rollingdepth" rel="noopener noreferrer"
+                  <a href="" rel="noopener noreferrer"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -160,33 +140,6 @@
                     </span>
                     <span>Dataset</span>
                   </a> </span>
-                <!-- Hugging Face Space -->
-                <!-- <style>
-                  .link-block a.button.is-dark.disabled {
-                    background-color: #4a4a4a;
-                    opacity: 0.8;
-                    cursor: not-allowed;
-                    pointer-events: none;
-                  }
-                </style>
-                <span class="link-block">
-                  <a href="https://huggingface.co/spaces/prs-eth/rollingdepth" rel="noopener noreferrer"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">&#129303;</span>
-                    <span>Demo</span>
-                  </a>
-                </span> -->
-
-                <!--              &lt;!&ndash; Colab Link. &ndash;&gt;-->
-                <!--              <span class="link-block">-->
-                <!--                <a href="https://colab.research.google.com/drive/12G8reD13DdpMie5ZQlaFNo2WCGeNUH-u?usp=sharing"  rel="noopener noreferrer"-->
-                <!--                   class="external-link button is-normal is-rounded is-dark">-->
-                <!--                  <span class="icon">-->
-                <!--                    <img src="images/colab.svg">-->
-                <!--                  </span>-->
-                <!--                  <span>&nbsp;Google Colab</span>-->
-                <!--                </a>-->
-                <!--              </span>-->
               </div>
             </div>
           </div>
@@ -200,10 +153,13 @@
     <div class="container is-max-desktop">
       <div class="hero-body">
         <center>
-          <img src="static\images\1.png" border="0" width="100%">
+          <img src="images/teaser.jpg" border="0" width="100%">
         </center>
         <h2 class="subtitle has-text-centered">
-          Figure 1: Overview of our main contribution in this paper.
+          Overview of the main contributions of this paper, including the <b>V</b>ideo <b>F</b>usion <b>Bench</b>mark
+          <b>(VF-Bench)</b>, the <b>Uni</b>fied
+          <b>V</b>ideo <b>F</b>usion framework <b>(UniVF)</b>, dedicated training losses and evaluation protocol for
+          video fusion.
         </h2>
       </div>
     </div>
@@ -218,14 +174,22 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              The real world is dynamic, yet most image fusion methods process static frames independently, ignoring temporal
-              correlations in videos and leading to flickering and temporal inconsistency. To address this, we propose <b>Uni</b>fied <b>V</b>ideo
-              <b>F</b>usion <b>(UniVF)</b>, a novel framework for temporally coherent video fusion that leverages multi-frame learning and optical
-              flow-based feature warping for informative, temporally coherent video fusion. To support its development, we also
-              introduce <b>V</b>ideo <b>F</b>usion <b>Bench</b>mark <b>(VF-Bench)</b>, the first comprehensive benchmark covering four video fusion tasks:
-              multi-exposure, multi-focus, infrared-visible, and medical fusion. VF-Bench provides high-quality, well-aligned video
-              pairs obtained through synthetic data generation and rigorous curation from existing datasets, with a unified evaluation
-              protocol that jointly assesses the spatial quality and temporal consistency of video fusion. Extensive experiments show
+              The real world is dynamic, yet most image fusion methods process static frames independently, ignoring
+              temporal
+              correlations in videos and leading to flickering and temporal inconsistency. To address this, we propose
+              <b>Uni</b>fied <b>V</b>ideo
+              <b>F</b>usion <b>(UniVF)</b>, a novel framework for temporally coherent video fusion that leverages
+              multi-frame learning and optical
+              flow-based feature warping for informative, temporally coherent video fusion. To support its development,
+              we also
+              introduce <b>V</b>ideo <b>F</b>usion <b>Bench</b>mark <b>(VF-Bench)</b>, the first comprehensive benchmark
+              covering four video fusion tasks:
+              multi-exposure, multi-focus, infrared-visible, and medical fusion. VF-Bench provides high-quality,
+              well-aligned video
+              pairs obtained through synthetic data generation and rigorous curation from existing datasets, with a
+              unified evaluation
+              protocol that jointly assesses the spatial quality and temporal consistency of video fusion. Extensive
+              experiments show
               that UniVF achieves state-of-the-art results across all tasks on VF-Bench.
             </p>
           </div>
@@ -235,31 +199,6 @@
   </section>
   <!-- End paper abstract -->
 
-  <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <!-- Paper video. -->
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <div class="publication-video">
-              <!-- Youtube video -->
-              <div class="column has-text-centered">
-                <iframe src="https://www.youtube.com/embed/EhqyUg7xoY8?si=gEhIeMjm6ItwR2X3" title="Intro Video"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <h2 class="subtitle has-text-centered">
-        Overview of the proposed
-        <span class="methodname">RollingDepth</span> method and results
-      </h2>
-    </div>
-  </section>
-
   <!-- (hidden), for video switching buttons -->
   <img id="btn_selected" src="./images/circle-shadowed.svg" style="display: none" />
   <img id="btn_normal" src="./images/circle-small.svg" style="display: none" />
@@ -268,29 +207,7 @@
   <section class="hero teaser is-small is-light">
     <div class="container is-max-desktop has-text-centered">
       <div class="hero-body">
-        <h2 class="title is-3">In-the-wild Gallery</h2>
-        <!-- colorbar -->
-        <div class="container is-max-desktop has-text-centered">
-          <style>
-            .colorbar-img {
-              height: 15px;
-              width: 250px;
-            }
-
-            @media (max-width: 750px) {
-
-              /* 750px because 300/0.4 = 750 */
-              .colorbar-img {
-                width: 150px;
-              }
-            }
-          </style>
-          <div>
-            <span>near</span>
-            <img src="./images/colorbar.png" alt="Depth colorbar" class="colorbar-img" />
-            <span>far</span>
-          </div>
-        </div>
+        <h2 class="title is-3">Video Fusion Gallery</h2>
         <!-- For a new group, change all `_a1` to `_a2` -->
         <video id="myVideo_a1" muted autoplay="autoplay" loop="loop" width="100%" controls playsinline></video>
         <!-- small circles, should correspond to number of videos -->
@@ -301,20 +218,16 @@
           <img src="./images/circle-small.svg" />
           <img src="./images/circle-small.svg" />
           <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
           <img src="./images/arrow-right-round.svg" />
         </div>
         <script>
           $(function () {
             let src = [
-              "./video/ours_rgbd/0d237a5f_compressed.mp4",
-              "./video/ours_rgbd/teaser_dog_rgbd3_compressed.mp4",
-              "./video/ours_rgbd/7966db29_compressed.mp4",
-              "./video/ours_rgbd/8735692-hd_1920_1080_30fps_compressed.mp4",
-              "./video/ours_rgbd/2d174908_compressed.mp4",
-              "./video/ours_rgbd/623bbe3a_compressed.mp4",
-              "./video/ours_rgbd/M9SFmxyAlrc-CceT_compressed.mp4",
+              "video/ours/MEF1.mp4",
+              "video/ours/MEF2.mp4",
+              "video/ours/MFF.mp4",
+              "video/ours/IVF.mp4",
+              "video/ours/MVF.mp4",
             ];
             const player = $("#myVideo_a1")[0];
             const button = $("#page_a1 img");
@@ -358,282 +271,260 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <!-- Abstract -->
-          <h3 class="title is-3">Abstract</h3>
+          <!-- UniVF architecture -->
+          <br>
           <div class="content has-text-justified">
+            <h2 class="title is-3 has-text-centered">How UniVF Works</h2>
+            <img id="method_inference" width="100%" src="images/method.jpg" alt="Method" />
             <p>
-              Video depth estimation lifts monocular video clips to 3D by
-              inferring dense depth at every frame. Recent advances in
-              single-image depth estimation, brought about by the rise of
-              large foundation models and the use of synthetic training data,
-              have fueled a renewed interest in video depth. However, naively
-              applying a single-image depth estimator to every frame of a
-              video disregards temporal continuity, which not only leads to
-              flickering but may also break when camera motion causes sudden
-              changes in depth range. An obvious and principled solution would
-              be to build on top of video foundation models, but these come
-              with their own limitations; including expensive training and
-              inference, imperfect 3D consistency, and stitching routines for
-              the fixed-length (short) outputs. We take a step back and
-              demonstrate how to turn a single-image latent diffusion model
-              (LDM) into a state-of-the-art video depth estimator. Our model,
-              which we call <span class="methodname">RollingDepth</span>, has
-              two main ingredients: (i) a multi-frame depth estimator that is
-              derived from a single-image LDM and maps very short video
-              snippets (typically frame triplets) to depth snippets. (ii) a
-              robust, optimization-based registration algorithm that optimally
-              assembles depth snippets sampled at various different frame
-              rates back into a consistent video. RollingDepth is able to
-              efficiently handle long videos with hundreds of frames and
-              delivers more accurate depth videos than both dedicated video
-              depth estimators and high-performing single-frame models.
-            </p>
-          </div>
-
-          <!-- Method. -->
-          <h2 class="title is-3">How it works</h2>
-          <div class="content has-text-justified">
-            <img id="method_inference" width="100%" src="./images/method.png" alt="Method" />
-
-            <p>
-              <b>Overview of the
-                <span class="methodname">RollingDepth</span> Inference
-                Pipeline.</b>
-              Given a video sequence $\mathbf{x}$, we construct $N_T$
-              overlapping snippets using a <i>dilated rolling kernel</i> with
-              varying dilation rates, and perform 1-step inference to obtain
-              initial depth snippets
-              <span style="display: inline-flex; gap: 2px; vertical-align: middle">
-                <span style="
-                      width: 20px;
-                      height: 20px;
-                      background-color: #2160c4;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      font-size: 12px;
-                      font-weight: bold;
-                      color: black;
-                    ">k</span>
-                <span style="
-                      width: 20px;
-                      height: 20px;
-                      background-color: #ffa500;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      font-size: 12px;
-                      font-weight: bold;
-                      color: black;
-                    ">k</span>
-                <span style="
-                      width: 20px;
-                      height: 20px;
-                      background-color: #cc0000;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      font-size: 12px;
-                      font-weight: bold;
-                      color: black;
-                    ">k</span> </span>. Next, depth co-alignment optimizes $N_T$ pairs of scale and
-              shift values to achieve globally consistent depth throughout the
-              full video. An optional refinement step further enhances details
-              by applying additional, snippet-based denoising steps.
+              Detailed illustration of our UniVF architecture.
             </p>
 
-            <!-- Quantitative table -->
-            <h2 class="title has-text-centered">
-              Quantitative comparison with other methods
+            <!-- VF-Bench Pipeline -->
+            <h2 class="title is-3 has-text-centered">
+              How VF-Bench Was Built
             </h2>
-
-            <p>
-              <b>Quantitative comparison</b> of
-              <span class="methodname">RollingDepth</span> with baseline
-              methods on zero-shot benchmarks. <b>Bold</b> numbers are the
-              best, <u>underscored</u> second best, numbers in the bracket
-              after each dataset denote video sequence length.
-              <span class="methodname">RollingDepth</span>
-              demonstrates superior performance across both short and long
-              video sequences, despite being an image-based model.
-            </p>
-
-            <img id="comparison" width="100%" src="./images/table.png" alt="Comparison with other methods" />
-
-            <p class="mt-5">
-              Refer to the pdf paper linked above for more details on
-              qualitative, quantitative, and ablation studies.
-            </p>
+            <img id="method_inference" width="100%" src="images/data_pipeline.jpg" alt="Method" />
+            <p>The proposed data generation paradigms for (a) multi-exposure video pair and (b) multi-focus video
+              pair for our VF-Bench.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Dataset comparison -->
-  <section class="hero teaser is-small">
-    <div class="container is-max-desktop has-text-centered">
-      <div class="hero-body">
-        <h2 class="title has-text-centered">
-          Qualitative comparison on labeled datasets
-        </h2>
-        <!-- colorbar -->
-        <div class="container is-max-desktop has-text-centered">
-          <style>
-            .colorbar-img {
-              height: 15px;
-              width: 250px;
-            }
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">
+            VF-Bench Gallery
+          </h2>
+          <!-- 图像展览部分 -->
+          <div class="content has-text-centered">
+            <img id="galleryImage_a1" width="100%" src="images/vis-YouTube.png" alt="VF-Bench Gallery Image" />
+            <p id="imageTitle_a1" class="mt-2"><b>Multi-Exposure Video Fusion Branch</b></p>
 
-            @media (max-width: 750px) {
-
-              /* 750px because 300/0.4 = 750 */
-              .colorbar-img {
-                width: 150px;
-              }
-            }
-          </style>
-          <div>
-            <span>near</span>
-            <img src="./images/colorbar.png" alt="Depth colorbar" class="colorbar-img" />
-            <span>far</span>
+            <!-- 小圆点和左右箭头 -->
+            <div class="pages" id="img_page_a1" style="margin-top: 1rem;">
+              <img src="./images/arrow-left-round.svg" style="cursor: pointer;" />
+              <img src="./images/circle-small.svg" style="cursor: pointer;" />
+              <img src="./images/circle-small.svg" style="cursor: pointer;" />
+              <img src="./images/circle-small.svg" style="cursor: pointer;" />
+              <img src="./images/circle-small.svg" style="cursor: pointer;" />
+              <img src="./images/arrow-right-round.svg" style="cursor: pointer;" />
+            </div>
           </div>
-        </div>
-        <!-- For a new group, change all `_a3` to `_a3` -->
-        <video id="myVideo_a3" muted autoplay="autoplay" loop="loop" width="100%" controls playsinline></video>
-        <div width="100%" class="pages" id="page_a3">
-          <img src="./images/arrow-left-round.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/arrow-right-round.svg" />
-        </div>
-        <script>
-          $(function () {
-            let src = [
-              "./video/comparison_dataset/train^dancing_compressed.mp4",
-              "./video/comparison_dataset/train^scene_recording_20210910_S05_S06_0_ego2_compressed.mp4",
-              "./video/comparison_dataset/train^footlab_3rd_compressed.mp4",
-              "./video/comparison_dataset/train^seminar_h52_ego1_compressed.mp4",
-              "./video/comparison_dataset/scene0797_00_compressed.mp4",
-              "./video/comparison_dataset/scene0723_00_compressed.mp4",
-              "./video/comparison_dataset/scene0724_00_compressed.mp4",
-              "./video/comparison_dataset/scene0736_00_compressed.mp4",
-              "./video/comparison_dataset/scene0804_00_compressed.mp4",
-              "./video/comparison_dataset/xmas^xmas_shot1_compressed.mp4",
-              "./video/comparison_dataset/coffe_shop^coffe_shot1_compressed.mp4",
-            ];
-            const player = $("#myVideo_a3")[0];
-            const button = $("#page_a3 img");
-            const size = src.length;
-            let index = 0;
-            let old = -1;
-            function go() {
-              if (old >= 0) {
-                button[old + 1].src = btn_normal.src;
+
+          <script>
+            $(function () {
+              let src = [
+                "images/vis-YouTube.png",
+                "images/vis-DAVIS.png",
+                "images/vis-VTMOT.png",
+                "images/vis-Harvard.png",
+              ];
+              let titles = [
+                "Multi-Exposure Video Fusion Branch",
+                "Multi-Focus Video Fusion Branch",
+                "Infrared-Visible Video Fusion Branch",
+                "Medical Image Video Fusion Branch"
+              ];
+              const viewer = $("#galleryImage_a1");
+              const titlebox = $("#imageTitle_a1");
+              const button = $("#img_page_a1 img");
+              const size = src.length;
+              let index = 0;
+              let old = -1;
+
+              function go() {
+                if (old >= 0) {
+                  button[old + 1].src = $("#btn_normal").attr("src");
+                }
+                button[index + 1].src = $("#btn_selected").attr("src");
+                old = index;
+                viewer.attr("src", src[index]);
+                titlebox.text(titles[index]);
               }
-              button[index + 1].src = btn_selected.src;
-              old = index;
-              player.src = src[index];
-              player.load();
-            }
-            go();
-            button.click(function () {
-              let x = $(this).index();
-              if (x == 0) {
-                if (index > 0) {
-                  index--;
+
+              go();
+
+              button.click(function () {
+                let x = $(this).index();
+                if (x == 0) {
+                  if (index > 0) {
+                    index--;
+                    go();
+                  }
+                } else if (x == size + 1) {
+                  if (index < size - 1) {
+                    index++;
+                    go();
+                  }
+                } else if (x > 0 && x <= size) {
+                  index = x - 1;
                   go();
                 }
-              } else if (x == size + 1) {
-                if (index < size - 1) {
-                  index++;
-                  go();
-                }
-              } else if (x > 0 && x <= size) {
-                index = x - 1;
-                go();
-              }
+              });
             });
-          });
-        </script>
+          </script>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- In-the-wild comparison -->
+
+  <!-- Experimental Results -->
+  <section class="section pt-0">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <br>
+          <!-- Quantitative table -->
+          <h2 class="title is-3 has-text-centered">
+            Quantitative comparison with other methods
+          </h2>
+
+          <p>
+            Quantitative evaluation results for the Multi-Exposure Fusion and Multi-Focus Fusion task. The red and blue
+            highlights indicate the
+            highest and second-highest scores
+          </p>
+
+          <img id="comparison" width="100%" src="images/table1.png" alt="Comparison with other methods" />
+
+          <p>
+            Quantitative evaluation results for the Infrared-Visible Fusion and Medical Video Fusion task. The red and
+            blue highlights indicate the
+            highest and second-highest scores
+          </p>
+
+          <img id="comparison" width="100%" src="images/table2.png" alt="Comparison with other methods" />
+
+          <p class="mt-5">
+            Refer to the pdf paper linked above for more details on
+            qualitative, quantitative, and ablation studies.
+          </p>
+
+          <br>
+          <h2 class="title has-text-centered">
+            Qualitative Video Comparison
+          </h2>
+          <!-- For a new group, change all `_a3` to `_a3` -->
+          <video id="myVideo_a3" muted autoplay="autoplay" loop="loop" width="100%" controls playsinline></video>
+          <div width="100%" class="pages" id="page_a3">
+            <img src="./images/arrow-left-round.svg" />
+            <img src="./images/circle-small.svg" />
+            <img src="./images/circle-small.svg" />
+            <img src="./images/circle-small.svg" />
+            <img src="./images/circle-small.svg" />
+            <img src="./images/circle-small.svg" />
+            <img src="./images/arrow-right-round.svg" />
+          </div>
+          <script>
+            $(function () {
+              let src = [
+                "video/comparision_video/Multi-exposure-Video-Fusion-1.mp4",
+                "video/comparision_video/Multi-exposure-Video-Fusion-2.mp4",
+                "video/comparision_video/Multi-focus-Video-Fusion.mp4",
+                "video/comparision_video/Infrared-Visible-Video-Fusion.mp4",
+                "video/comparision_video/Medical-Video-Fusion.mp4",
+              ];
+              const player = $("#myVideo_a3")[0];
+              const button = $("#page_a3 img");
+              const size = src.length;
+              let index = 0;
+              let old = -1;
+              function go() {
+                if (old >= 0) {
+                  button[old + 1].src = btn_normal.src;
+                }
+                button[index + 1].src = btn_selected.src;
+                old = index;
+                player.src = src[index];
+                player.load();
+              }
+              go();
+              button.click(function () {
+                let x = $(this).index();
+                if (x == 0) {
+                  if (index > 0) {
+                    index--;
+                    go();
+                  }
+                } else if (x == size + 1) {
+                  if (index < size - 1) {
+                    index++;
+                    go();
+                  }
+                } else if (x > 0 && x <= size) {
+                  index = x - 1;
+                  go();
+                }
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qualitative Image Comparison -->
   <section class="hero teaser is-small">
     <div class="container is-max-desktop has-text-centered">
       <div class="hero-body">
         <h2 class="title has-text-centered">
-          Qualitative comparison on in-the-wild videos
+          Qualitative Image Comparison
         </h2>
-        <!-- colorbar -->
-        <div class="container is-max-desktop has-text-centered">
-          <style>
-            .colorbar-img {
-              height: 15px;
-              width: 250px;
-            }
+        <!-- 图像展览部分 -->
+        <div class="content has-text-centered">
+          <img id="galleryImage_a2" width="100%" src="images/fusion-Youtube.png" alt="VF-Bench Gallery Image" />
+          <p id="imageTitle_a2" class="mt-2"><b>Multi-Exposure Video Fusion Comparison</b></p>
 
-            @media (max-width: 750px) {
-
-              /* 750px because 300/0.4 = 750 */
-              .colorbar-img {
-                width: 150px;
-              }
-            }
-          </style>
-          <div>
-            <span>near</span>
-            <img src="./images/colorbar.png" alt="Depth colorbar" class="colorbar-img" />
-            <span>far</span>
+          <!-- 小圆点和左右箭头 -->
+          <div class="pages" id="img_page_a2" style="margin-top: 1rem;">
+            <img src="./images/arrow-left-round.svg" style="cursor: pointer;" />
+            <img src="./images/circle-small.svg" style="cursor: pointer;" />
+            <img src="./images/circle-small.svg" style="cursor: pointer;" />
+            <img src="./images/circle-small.svg" style="cursor: pointer;" />
+            <img src="./images/circle-small.svg" style="cursor: pointer;" />
+            <img src="./images/arrow-right-round.svg" style="cursor: pointer;" />
           </div>
         </div>
-        <!-- For a new group, change all `_a2` to `_a2` -->
-        <video id="myVideo_a2" muted autoplay="autoplay" loop="loop" width="100%" controls playsinline></video>
-        <!-- small circles, should correspond to number of videos -->
-        <div width="100%" class="pages" id="page_a2">
-          <img src="./images/arrow-left-round.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/circle-small.svg" />
-          <img src="./images/arrow-right-round.svg" />
-        </div>
+
         <script>
           $(function () {
             let src = [
-              "./video/comparison_in-the-wild/2d174908_compressed.mp4",
-              "./video/comparison_in-the-wild/4a94edce_compressed.mp4",
-              "./video/comparison_in-the-wild/8f23d65c_compressed.mp4",
-              "./video/comparison_in-the-wild/horse_compressed.mp4",
-              "./video/comparison_in-the-wild/M9SFmxyAlrc-CceT_compressed.mp4",
+              "images/fusion-Youtube.png",
+              "images/fusion-DAVIS.png",
+              "images/fusion-VTMOT.png",
+              "images/fusion-Havard.png",
             ];
-            const player = $("#myVideo_a2")[0];
-            const button = $("#page_a2 img");
+            let titles = [
+              "Multi-Exposure Video Fusion Comparison",
+              "Multi-Focus Video Fusion Comparison",
+              "Infrared-Visible Video Fusion Comparison",
+              "Medical Image Video Fusion Comparison"
+            ];
+            const viewer = $("#galleryImage_a2");
+            const titlebox = $("#imageTitle_a2");
+            const button = $("#img_page_a2 img");
             const size = src.length;
             let index = 0;
             let old = -1;
+
             function go() {
               if (old >= 0) {
-                button[old + 1].src = btn_normal.src;
+                button[old + 1].src = $("#btn_normal").attr("src");
               }
-              button[index + 1].src = btn_selected.src;
+              button[index + 1].src = $("#btn_selected").attr("src");
               old = index;
-              player.src = src[index];
-              player.load();
+              viewer.attr("src", src[index]);
+              titlebox.text(titles[index]);
             }
+
             go();
+
             button.click(function () {
               let x = $(this).index();
               if (x == 0) {
@@ -696,15 +587,13 @@
     <div class="container is-max-desktop content">
       <h2 class="title">Citation</h2>
       <pre class="selectable">
-<code>@InProceedings{ke2024rollingdepth,
-    title={Video Depth without Video Models}, 
-    author={Bingxin Ke and Dominik Narnhofer and Shengyu Huang and Lei Ke and Torben Peters and Katerina Fragkiadaki and Anton Obukhov and Konrad Schindler},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    year={2025}
-}</code>
+<code>
+TBD
+</code>
 </pre>
     </div>
   </section>
+
 
   <footer class="footer pt-4 pb-0">
     <div class="container">
@@ -718,7 +607,7 @@
               </a>
               and licensed under
               <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-                CC-BY-SA-4.0 </a>.
+                CC-BY-SA-4.0</a>.
             </p>
           </div>
         </div>
